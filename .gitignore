@@ -1,0 +1,91 @@
+.DS_Store
+*.zip
+node_modules/
+.gemini/
+
+# Ignore videos (too large for GitHub)
+*.MOV
+*.mp4
+*.MP4
+*.mov
+
+# Allow assets directory
+!assets/
+
+# Allow mc_gallery entirely
+!assets/mc_gallery/
+!assets/mc_gallery/*
+
+# Ignore everything in assets/mc nhí đã lọc 2025 by default
+assets/mc nhí đã lọc 2025/*
+
+# Allow specific used files in mc nhí đã lọc 2025
+!assets/mc nhí đã lọc 2025/z6686801025869_48f606bce253920e34de4ea1918474fb.jpg
+!assets/mc nhí đã lọc 2025/z6686801032852_53f1196ee145eae1731a4403e3ff3263.jpg
+!assets/mc nhí đã lọc 2025/z6686801123176_efbfe806ba62f10886c039c628e169d1.jpg
+!assets/mc nhí đã lọc 2025/z6686801124808_01f831ca51cd7d62f5c4a23f6846d25c.jpg
+!assets/mc nhí đã lọc 2025/z6714716732105_d3dc9ddd0b8118d0a31052b0674fc937.jpg
+!assets/mc nhí đã lọc 2025/z6714716756731_a02bbde19acbe0502a31dc5a5bbc2cd7.jpg
+!assets/mc nhí đã lọc 2025/z6714719216783_23bc03b4b2e436d152e23e8ba4b7e690.jpg
+!assets/mc nhí đã lọc 2025/z6714719218653_125e0a17753b92eaea545dfcf2149c36.jpg
+!assets/mc nhí đã lọc 2025/z6714719238689_b87792d1ecef3bd3dc0c75f6fd7e7df5.jpg
+!assets/mc nhí đã lọc 2025/z6714721899935_6634948cbb1466943305cd5b2560721e.jpg
+!assets/mc nhí đã lọc 2025/z6714721982828_ce7ea300f02810916af5425e1d62eb16.jpg
+!assets/mc nhí đã lọc 2025/z6714721999472_2ffc4cc812655441c023e3958d4ea065.jpg
+!assets/mc nhí đã lọc 2025/z6714722019380_03f54bd988ee4cdfbd53a539d6da13be.jpg
+!assets/mc nhí đã lọc 2025/z6714722033117_4c42bcb8d598f43797136cdf50bf0857.jpg
+!assets/mc nhí đã lọc 2025/z6714722050029_7432015489beb0663b520a3b22dc0d27.jpg
+!assets/mc nhí đã lọc 2025/z6714722068302_cfe1e0ada615f2c857a7a6c5524c43ae.jpg
+!assets/mc nhí đã lọc 2025/z6714723676108_5b7230eaabd52b7ffb9547410294b14e.jpg
+!assets/mc nhí đã lọc 2025/z6714723715759_3d33798d6367884a43918f4b36cc7ad5.jpg
+!assets/mc nhí đã lọc 2025/z6714723738200_9c0a961833557cd66bcfb720714fe66a.jpg
+!assets/mc nhí đã lọc 2025/z6714723757900_339def6dbdbe7aeb1020ef1d9912b94b.jpg
+!assets/mc nhí đã lọc 2025/z6714723957937_625c8bbae88684c6f5d54d0229241f65.jpg
+!assets/mc nhí đã lọc 2025/z6714723967815_f5c7ca7c3498cba6bb61629ed5220cbb.jpg
+!assets/mc nhí đã lọc 2025/z6714724229418_b5d395ccde63f03c895bb8dbf885681b.jpg
+!assets/mc nhí đã lọc 2025/z6714724233600_72f5c9ee93527d7ad186b9cf31693d3f.jpg
+!assets/mc nhí đã lọc 2025/z6714724252379_8254a2248b969e45ae6a72f466633802.jpg
+!assets/mc nhí đã lọc 2025/z6714724255540_d66640d9d75f12a4f041c62b71f27138.jpg
+!assets/mc nhí đã lọc 2025/z6742061009736_45897c5b9eca64a68ca15bf40ff8ea3e.jpg
+!assets/mc nhí đã lọc 2025/z6742066546047_18ade8fb8d57ab27a0edd0ed654b7ce5.jpg
+!assets/mc nhí đã lọc 2025/z6742066551606_d78f797276a8fc5dd6e6bb37f24b1ba8.jpg
+!assets/mc nhí đã lọc 2025/z6742069131134_0d0b87995308172da08769e9994062a7.jpg
+!assets/mc nhí đã lọc 2025/z6742069145510_a188c2be827b2ef9515ff6197f753856.jpg
+!assets/mc nhí đã lọc 2025/z6742071499745_0942aa95a670b58d84b6dee474b3cd68.jpg
+!assets/mc nhí đã lọc 2025/z6742071506087_e286a54a88536598f905250e4145d46b.jpg
+!assets/mc nhí đã lọc 2025/z6742075314428_def06923003ce49a0628673ecb368dcc.jpg
+
+# Ignore everything in assets/ảnh Giáo viên MC by default
+assets/ảnh Giáo viên MC/*
+
+# Allow specific used files in ảnh Giáo viên MC
+!assets/ảnh Giáo viên MC/IMG_0633.JPG
+!assets/ảnh Giáo viên MC/IMG_0974.JPG
+!assets/ảnh Giáo viên MC/IMG_0975.JPG
+!assets/ảnh Giáo viên MC/IMG_0982.jpg
+!assets/ảnh Giáo viên MC/IMG_1030.JPG
+!assets/ảnh Giáo viên MC/IMG_1044.jpg
+!assets/ảnh Giáo viên MC/IMG_9131.JPG
+!assets/ảnh Giáo viên MC/IMG_9132.JPG
+!assets/ảnh Giáo viên MC/IMG_9133.JPG
+!assets/ảnh Giáo viên MC/IMG_9135.JPG
+!assets/ảnh Giáo viên MC/IMG_9259.JPG
+!assets/ảnh Giáo viên MC/IMG_9405.JPG
+!assets/ảnh Giáo viên MC/IMG_9623.JPG
+!assets/ảnh Giáo viên MC/Ảnh màn hình 2024-08-02 lúc 20.17.54.jpg
+!assets/ảnh Giáo viên MC/Ảnh màn hình 2024-08-02 lúc 20.19.08.jpg
+!assets/ảnh Giáo viên MC/Ảnh màn hình 2024-08-02 lúc 20.19.21.jpg
+
+# Ignore unused files in assets root
+assets/Bản sao IMG_7283.jpg
+assets/Bản sao IMG_8593.jpg
+assets/IMG_1444.PNG
+assets/IMG_1501.PNG
+assets/IMG_4782.jpg
+assets/IMG_5164.heic
+assets/IMG_7283.jpg
+
+# Ignore unused root images
+mic.png
+shapes.png
+sphere.png
