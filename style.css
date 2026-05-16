@@ -125,6 +125,14 @@ section::after {
     display: block;
 }
 
+.img-original {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    display: block;
+    transition: var(--transition-smooth);
+}
+
 .img-frame-editorial .img-placeholder { height: 100%; }
 
 .img-placeholder.portrait { aspect-ratio: 3/4; }
@@ -479,4 +487,50 @@ section::after {
     .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
     
     .final-heading { font-size: 3rem; }
+}
+
+/* --- CUSTOM GALLERY LAYOUTS (Masonry Columns) --- */
+.gallery-columns {
+    column-count: 4;
+    column-gap: 10px;
+    width: 100%;
+}
+.gallery-columns .reveal {
+    break-inside: avoid;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .gallery-columns { column-count: 3; }
+}
+
+@media (max-width: 768px) {
+    .gallery-columns { 
+        column-count: 2; 
+        column-gap: 5px; 
+    }
+    .gallery-columns .reveal { 
+        margin-bottom: 5px; 
+    }
+}
+
+.gallery-custom-3 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+.gallery-custom-3 .reveal:nth-child(1),
+.gallery-custom-3 .reveal:nth-child(2) {
+    grid-column: span 2;
+}
+@media (max-width: 768px) {
+    .gallery-custom-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .gallery-custom-3 .reveal:nth-child(1),
+    .gallery-custom-3 .reveal:nth-child(2) {
+        grid-column: span 1;
+    }
 }
