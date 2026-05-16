@@ -452,9 +452,9 @@ section::after {
 
 @media (max-width: 768px) {
     section { padding: 50px 0; }
-    .hero-top-elements { flex-direction: column; align-items: center; gap: 15px; top: 4%; }
-    .hero-teacher-script { font-size: 3.5rem; margin-bottom: -10px; }
-    .hero-mc-name-header { font-size: 0.9rem; letter-spacing: 0.15em; }
+    .hero-top-elements { flex-direction: row; justify-content: space-between; align-items: center; top: 4%; }
+    .hero-teacher-script { font-size: 2.5rem; }
+    .hero-mc-name-header { font-size: 0.8rem; letter-spacing: 0.1em; }
     
     .hero-main-img-container { height: 65%; bottom: 5%; }
     .hero-bg-portfolio { font-size: 30vw; opacity: 0.15; top: 50%; }
@@ -463,13 +463,13 @@ section::after {
         position: absolute; 
         bottom: 15%; 
         left: 5%; 
-        transform: rotate(-8deg) scale(0.7); 
+        transform: rotate(-8deg) scale(0.5); 
         z-index: 10; 
     }
     
     .hero-bottom-right { display: none; } /* Hide QR on mobile hero for cleaner look */
     
-    .profile-grid { grid-template-columns: 1fr; gap: 30px; }
+    .profile-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: center; }
     .section-bg-label { display: none; }
     .grid-gallery-bento { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
     .bento-item-large, .bento-item-wide, .bento-item-tall { grid-column: span 1; grid-row: span 1; }
