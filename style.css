@@ -320,7 +320,8 @@ section::after {
 
 /* --- TALKSHOW SECTION --- */
 .talkshow-text { font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 600; max-width: 900px; margin: 0 auto 3rem; color: #333; line-height: 1.6; text-align: justify; }
-.talkshow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.talkshow-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.talkshow-grid .reveal { width: calc((100% - 40px) / 3); }
 
 /* --- GALLERY SECTIONS --- */
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
@@ -423,7 +424,7 @@ section::after {
     .bento-item-large, .bento-item-wide, .bento-item-tall { grid-column: span 1; grid-row: span 1; }
     .img-placeholder { aspect-ratio: 16/9; }
     .media-grid { grid-template-columns: 1fr; }
-    .talkshow-grid { grid-template-columns: 1fr; }
+    .talkshow-grid .reveal { width: 100%; }
     
     .final-heading { font-size: 3rem; }
 }
