@@ -78,9 +78,38 @@ const initSmoothScroll = () => {
 };
 
 
+/**
+ * VIDEO PLAYER FACADE HANDLER
+ */
+const initVideoPlayer = () => {
+    const containers = document.querySelectorAll('.video-container');
+    
+    containers.forEach(container => {
+        container.addEventListener('click', function() {
+            const videoId = this.getAttribute('data-video-id');
+            if (!videoId) return;
+            
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            iframe.style.width = '100%';
+            iframe.style.aspectRatio = '16/9';
+            iframe.style.border = 'none';
+            iframe.style.borderRadius = '8px';
+            iframe.allowFullscreen = true;
+            iframe.allow = 'autoplay; encrypted-media';
+            
+            // Replace facade with iframe
+            this.innerHTML = '';
+            this.appendChild(iframe);
+        });
+    });
+};
+
+
 // INITIALIZE ALL SYSTEMS
 document.addEventListener('DOMContentLoaded', () => {
     initReveal();
     initParallax();
     initSmoothScroll();
+    initVideoPlayer();
 });

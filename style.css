@@ -324,6 +324,56 @@ section::after {
 .talkshow-grid .reveal { width: calc((100% - 40px) / 3); }
 .talkshow-grid .reveal:nth-last-child(-n+4) { width: calc((100% - 60px) / 4); }
 
+.video-container {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+}
+.video-facade {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+.video-container:hover .video-facade {
+    transform: scale(1.05);
+}
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+.play-button::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 16px solid var(--primary);
+    margin-left: 5px;
+}
+.video-container:hover .play-button {
+    background: var(--primary);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+.video-container:hover .play-button::after {
+    border-left-color: white;
+}
+
 /* --- GALLERY SECTIONS --- */
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 .gallery-item {

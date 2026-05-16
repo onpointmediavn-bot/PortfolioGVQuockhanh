@@ -59,6 +59,8 @@ assets/mc nhí đã lọc 2025/*
 assets/ảnh Giáo viên MC/*
 
 # Allow specific used files in ảnh Giáo viên MC
+!assets/ảnh Giáo viên MC/IMG_0269.jpg
+!assets/ảnh Giáo viên MC/IMG_7163.JPG
 !assets/ảnh Giáo viên MC/IMG_1501.PNG
 !assets/ảnh Giáo viên MC/IMG_0003.jpg
 !assets/ảnh Giáo viên MC/IMG_4782.jpg
