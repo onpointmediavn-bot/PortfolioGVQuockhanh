@@ -471,11 +471,12 @@ section::after {
     
     .profile-grid { grid-template-columns: 1fr; gap: 30px; }
     .section-bg-label { display: none; }
-    .grid-gallery-bento { grid-template-columns: 1fr; grid-auto-rows: auto; }
+    .grid-gallery-bento { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
     .bento-item-large, .bento-item-wide, .bento-item-tall { grid-column: span 1; grid-row: span 1; }
     .img-placeholder { aspect-ratio: 16/9; }
-    .media-grid { grid-template-columns: 1fr; }
-    .talkshow-grid .reveal, .talkshow-grid .reveal:nth-last-child(-n+4) { width: 100%; }
+    .media-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .talkshow-grid .reveal, .talkshow-grid .reveal:nth-last-child(-n+4) { width: calc((100% - 20px) / 2); }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
     
     .final-heading { font-size: 3rem; }
 }
