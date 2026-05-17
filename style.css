@@ -467,8 +467,11 @@ section::after {
     .hero-main-img-container { 
         height: 70%; 
         bottom: 0; 
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
         z-index: 2;
     }
     
@@ -499,6 +502,7 @@ section::after {
     
     .img-frame {
         transform: none;
+        width: 100%;
         max-width: 280px;
     }
     
