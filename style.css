@@ -412,11 +412,42 @@ section::after {
 }
 
 /* --- FINAL SECTION --- */
-.final-heading { font-size: clamp(3rem, 10vw, 6rem); line-height: 1; margin-bottom: 4rem; }
-.final-info-card {
-    background: white; padding: clamp(30px, 6vw, 60px); border-radius: var(--radius-lg);
-    box-shadow: 0 40px 100px rgba(0,0,0,0.05); max-width: 600px; margin: 0 auto;
+.final-heading { 
+    font-size: clamp(3rem, 10vw, 5rem); 
+    line-height: 1.1; 
+    margin-bottom: 3rem; 
     text-align: center;
+    color: var(--text-main);
+}
+.final-heading span {
+    display: block;
+    background: linear-gradient(135deg, var(--primary) 0%, #FFB040 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.final-info-card {
+    background: linear-gradient(135deg, var(--primary) 0%, #FF9E40 100%);
+    padding: clamp(40px, 6vw, 50px); 
+    border-radius: var(--radius-lg);
+    box-shadow: 0 30px 60px rgba(255, 122, 0, 0.2); 
+    max-width: 600px; 
+    margin: 0 auto;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.final-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 40px 80px rgba(255, 122, 0, 0.3);
+}
+.final-info-card h3 {
+    color: white !important;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+.final-info-card .sub-text {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 1.1rem;
 }
 
 /* --- ANIMATIONS & UTILS --- */
