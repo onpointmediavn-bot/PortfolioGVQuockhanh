@@ -138,10 +138,63 @@ const initVideoPlayer = () => {
 };
 
 
+/**
+ * LIGHTBOX FOR IMAGES
+ */
+const initLightbox = () => {
+    const images = document.querySelectorAll('.img-original, .img-placeholder');
+    
+    images.forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', function() {
+            let src = '';
+            if (this.tagName === 'IMG') {
+                src = this.src;
+            } else {
+                const bg = window.getComputedStyle(this).backgroundImage;
+                src = bg.replace(/url\(['"]?(.*?)['"]?\)/, '$1');
+            }
+            
+            if (!src || src === 'none') return;
+            
+            const modal = document.createElement('div');
+            modal.className = 'lightbox-modal';
+            
+            const imgElement = document.createElement('img');
+            imgElement.src = src;
+            imgElement.className = 'lightbox-img';
+            
+            modal.appendChild(imgElement);
+            
+            const closeBtn = document.createElement('button');
+            closeBtn.className = 'modal-close-btn';
+            closeBtn.innerHTML = '&times;';
+            
+            modal.appendChild(closeBtn);
+            
+            const closeModal = () => {
+                document.body.removeChild(modal);
+            };
+            
+            closeBtn.addEventListener('click', closeModal);
+            
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            document.body.appendChild(modal);
+        });
+    });
+};
+
+
 // INITIALIZE ALL SYSTEMS
 document.addEventListener('DOMContentLoaded', () => {
     initReveal();
     initParallax();
     initSmoothScroll();
     initVideoPlayer();
+    initLightbox();
 });
