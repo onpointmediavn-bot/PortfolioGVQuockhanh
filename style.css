@@ -465,7 +465,7 @@ section::after {
     .hero-mc-name-header { font-size: 0.8rem; letter-spacing: 0.1em; }
     
     .hero-main-img-container { 
-        height: 70%; 
+        height: 85%; 
         bottom: 0; 
         left: 0;
         right: 0;
@@ -473,6 +473,11 @@ section::after {
         justify-content: center;
         align-items: flex-end;
         z-index: 2;
+    }
+    
+    .main-portrait {
+        transform: scale(1.15);
+        transform-origin: bottom center;
     }
     
     .hero-bg-portfolio { font-size: 30vw; opacity: 0.1; top: 50%; }
