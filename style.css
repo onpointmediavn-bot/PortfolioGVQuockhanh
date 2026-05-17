@@ -510,6 +510,7 @@ section::after {
     .main-portrait {
         transform: scale(1.3);
         transform-origin: bottom center;
+        image-rendering: -webkit-optimize-contrast;
     }
     
     .hero-bg-portfolio { font-size: 30vw; opacity: 0.1; top: 50%; }
