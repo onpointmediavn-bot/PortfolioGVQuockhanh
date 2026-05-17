@@ -139,52 +139,111 @@ const initVideoPlayer = () => {
 
 
 /**
- * LIGHTBOX FOR IMAGES
+ * LIGHTBOX FOR IMAGES (With Swipe & Section Grouping)
  */
 const initLightbox = () => {
-    const images = document.querySelectorAll('.img-original, .img-placeholder');
+    const sections = document.querySelectorAll('section');
     
-    images.forEach(img => {
-        img.style.cursor = 'pointer';
-        img.addEventListener('click', function() {
-            let src = '';
-            if (this.tagName === 'IMG') {
-                src = this.src;
+    sections.forEach(section => {
+        const images = section.querySelectorAll('.img-original, .img-placeholder');
+        if (images.length === 0) return;
+        
+        // Convert to array of sources
+        const sources = Array.from(images).map(img => {
+            if (img.tagName === 'IMG') {
+                return img.src;
             } else {
-                const bg = window.getComputedStyle(this).backgroundImage;
-                src = bg.replace(/url\(['"]?(.*?)['"]?\)/, '$1');
+                const bg = window.getComputedStyle(img).backgroundImage;
+                return bg.replace(/url\(['"]?(.*?)['"]?\)/, '$1');
             }
-            
-            if (!src || src === 'none') return;
-            
-            const modal = document.createElement('div');
-            modal.className = 'lightbox-modal';
-            
-            const imgElement = document.createElement('img');
-            imgElement.src = src;
-            imgElement.className = 'lightbox-img';
-            
-            modal.appendChild(imgElement);
-            
-            const closeBtn = document.createElement('button');
-            closeBtn.className = 'modal-close-btn';
-            closeBtn.innerHTML = '&times;';
-            
-            modal.appendChild(closeBtn);
-            
-            const closeModal = () => {
-                document.body.removeChild(modal);
-            };
-            
-            closeBtn.addEventListener('click', closeModal);
-            
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    closeModal();
+        }).filter(src => src && src !== 'none');
+        
+        images.forEach((img, index) => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', function() {
+                let currentIndex = index;
+                
+                // Create modal
+                const modal = document.createElement('div');
+                modal.className = 'lightbox-modal';
+                
+                const imgElement = document.createElement('img');
+                imgElement.src = sources[currentIndex];
+                imgElement.className = 'lightbox-img';
+                
+                modal.appendChild(imgElement);
+                
+                const closeBtn = document.createElement('button');
+                closeBtn.className = 'modal-close-btn';
+                closeBtn.innerHTML = '&times;';
+                
+                modal.appendChild(closeBtn);
+                
+                // Add navigation if more than 1 image
+                if (sources.length > 1) {
+                    const prevBtn = document.createElement('button');
+                    prevBtn.className = 'lightbox-nav prev';
+                    prevBtn.innerHTML = '&#10094;';
+                    modal.appendChild(prevBtn);
+                    
+                    const nextBtn = document.createElement('button');
+                    nextBtn.className = 'lightbox-nav next';
+                    nextBtn.innerHTML = '&#10095;';
+                    modal.appendChild(nextBtn);
+                    
+                    const updateImage = (idx) => {
+                        currentIndex = (idx + sources.length) % sources.length;
+                        imgElement.src = sources[currentIndex];
+                    };
+                    
+                    prevBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        updateImage(currentIndex - 1);
+                    });
+                    
+                    nextBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        updateImage(currentIndex + 1);
+                    });
+                    
+                    // Touch events for swiping
+                    let touchStartX = 0;
+                    let touchEndX = 0;
+                    
+                    modal.addEventListener('touchstart', (e) => {
+                        touchStartX = e.changedTouches[0].screenX;
+                    }, {passive: true});
+                    
+                    modal.addEventListener('touchend', (e) => {
+                        touchEndX = e.changedTouches[0].screenX;
+                        handleSwipe();
+                    }, {passive: true});
+                    
+                    const handleSwipe = () => {
+                        const swipeThreshold = 50;
+                        if (touchStartX - touchEndX > swipeThreshold) {
+                            updateImage(currentIndex + 1); // Swipe left -> Next
+                        }
+                        if (touchEndX - touchStartX > swipeThreshold) {
+                            updateImage(currentIndex - 1); // Swipe right -> Prev
+                        }
+                    };
                 }
+                
+                const closeModal = () => {
+                    document.body.removeChild(modal);
+                };
+                
+                closeBtn.addEventListener('click', closeModal);
+                
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        closeModal();
+                    }
+                });
+                
+                document.body.appendChild(modal);
             });
-            
-            document.body.appendChild(modal);
         });
     });
 };
