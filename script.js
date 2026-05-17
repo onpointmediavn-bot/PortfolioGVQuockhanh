@@ -89,18 +89,50 @@ const initVideoPlayer = () => {
             const videoId = this.getAttribute('data-video-id');
             if (!videoId) return;
             
+            // Create modal
+            const modal = document.createElement('div');
+            modal.className = 'video-modal';
+            
+            const iframeContainer = document.createElement('div');
+            iframeContainer.className = 'modal-iframe-container';
+            
             const iframe = document.createElement('iframe');
             iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-            iframe.style.width = '100%';
-            iframe.style.aspectRatio = '16/9';
-            iframe.style.border = 'none';
-            iframe.style.borderRadius = '8px';
             iframe.allowFullscreen = true;
             iframe.allow = 'autoplay; encrypted-media';
             
-            // Replace facade with iframe
-            this.innerHTML = '';
-            this.appendChild(iframe);
+            iframeContainer.appendChild(iframe);
+            modal.appendChild(iframeContainer);
+            
+            const closeBtn = document.createElement('button');
+            closeBtn.className = 'modal-close-btn';
+            closeBtn.innerHTML = '&times;';
+            
+            modal.appendChild(closeBtn);
+            
+            const closeModal = () => {
+                document.body.removeChild(modal);
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                }
+            };
+            
+            closeBtn.addEventListener('click', closeModal);
+            
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            document.body.appendChild(modal);
+            
+            // Request full screen for the modal if supported
+            if (modal.requestFullscreen) {
+                modal.requestFullscreen();
+            } else if (modal.webkitRequestFullscreen) {
+                modal.webkitRequestFullscreen();
+            }
         });
     });
 };
